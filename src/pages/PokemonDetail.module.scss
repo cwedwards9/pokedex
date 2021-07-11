@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
+.pokemonDetails {
+    max-width: 1600px;
+    padding-bottom: 2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    background-color: rgb(164, 164, 164);
+    padding: 1rem 0;
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+
+        li {
+
+            a {
+                font-size: 1.5rem;
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+
+.pokemonName {
+    text-align: center;
+        font-size: 2.25rem;
+
+        span {
+            color: gray;
+        }
+}
+
+.pokemonGrid {
+    display: grid;
+    height: 100%;
+    width: 70%;
+    padding: 0 6rem;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas: 
+    "box1 box2"
+    "box3 box3";
+
+    .pokeImage {
+        grid-area: box1;
+        background-color: #F2F2F2;
+        padding: 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        justify-self: end;
+        align-self: end;
+        border-radius: 4px;
+    }
+
+    .pokeInfo {
+        grid-area: box2;
+
+        .pokeInfoCard {
+            display: flex;
+            justify-content: flex-start;
+            background-color: #30A7D7;
+            border-radius: 5px;
+            width: 80%;
+            margin: 0 auto;
+            padding: 1rem;
+
+            .pokeMoves {
+                padding: 0 1rem;
+                flex-grow: 1.5;
+                
+                h3 {
+                    color: #fff;
+                }
+            }
+            .pokeAbilities {
+                padding: 0 1rem;
+                flex-grow: 1;
+        
+                h3 {
+                    color: #fff;
+                }
+            }
+        }
+
+        .pokeTypes {
+            width: 80%;
+            margin: 1rem auto 0;
+            padding: 1rem;
+
+            h3 {
+                margin: 0 0 1rem;
+            }
+            
+            .typesList {
+                display: flex;
+    
+                .type {
+                    margin: 0 0.5rem 0 0;
+                    padding: 0.25rem 0;
+                    text-align: center;
+                    min-width: 125px;
+                    background-color: lightgray;
+                    color: white;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+
+    .pokeStats {
+        grid-area: box3;
+        padding: 0 1rem;
+        background-color: lightcyan;
+
+        .statsList {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}
