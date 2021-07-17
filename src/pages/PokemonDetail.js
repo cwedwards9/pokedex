@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import axios from "axios";
+import PokemonStats from "../components/PokemonStats";
 import getTypeBgColor from "../utils/getTypeBgColor";
 import styles from "./PokemonDetail.module.scss";
 
@@ -65,24 +66,21 @@ export default function PokemonDetail() {
                     <div className={styles.pokeTypes}>
                         <h3>Type</h3>
                         <div className={styles.typesList}>
-                            {pokemon.stats && pokemon.types.map(type => (
+                            {pokemon.types && pokemon.types.map(type => (
                                 <p key={type.slot} className={styles.type} style={{backgroundColor: getTypeBgColor(type.type.name)}}>{type.type.name}</p>
                             ))}
                         </div>
                     </div>
                 </div>
-                
+
                 <div className={styles.pokeStats}>
                     <h3>Stats</h3>
                     <div className={styles.statsList}>
                         {pokemon.stats && pokemon.stats.map(stat => (
-                            <div key={stat.stat.name}>
-                                <p>{stat.stat.name}</p>
-                                <p>{stat.base_stat}</p>
-                            </div>
+                            <PokemonStats key={stat.stat.name} stat={stat} />
                         ))}
                     </div>
-                </div>
+                </div> 
             </div>
         </section>
     )
