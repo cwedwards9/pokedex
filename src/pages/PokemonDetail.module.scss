@@ -41,11 +41,11 @@
 .pokemonGrid {
     display: grid;
     height: 100%;
-    width: 70%;
+    width: 75%;
     padding: 0 6rem;
     margin: 0 auto;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 1.54fr 1fr;
     grid-template-areas: 
     "box1 box2"
     "box3 box3";
@@ -57,7 +57,7 @@
         width: 100%;
         box-sizing: border-box;
         justify-self: end;
-        align-self: end;
+        align-self: start;
         border-radius: 4px;
     }
 
@@ -119,11 +119,32 @@
     .pokeStats {
         grid-area: box3;
         padding: 0 1rem;
-        background-color: lightcyan;
+        margin-top: 1rem;
+        background-color: #A4A4A4;
+        border-radius: 5px;
 
         .statsList {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-evenly;
+        }
+
+        ul {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style-type: none;
+
+            li {
+               width: 75px;
+               height: 10px;
+               margin-bottom: 0.25rem;
+               background-color: #fff; 
+            }
+        }
+
+        p {
+            text-align: center;
         }
     }
 }
