@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams, NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 import PokemonStats from "../components/PokemonStats";
 import getTypeBgColor from "../utils/getTypeBgColor";
 import styles from "./PokemonDetail.module.scss";
@@ -32,12 +33,8 @@ export default function PokemonDetail() {
 
     return(
         <section className={styles.pokemonDetails}>
-            <nav className={styles.navbar}>
-                <ul>
-                    <li><NavLink to={`/pokemon/${parseInt(id) - 1}`}>#{pokemon.id && addZero(parseInt(pokemon.id - 1))}</NavLink></li>
-                    <li><NavLink to={`/pokemon/${parseInt(id) + 1}`}>#{pokemon.id && addZero(parseInt(pokemon.id + 1))}</NavLink></li>
-                </ul>
-            </nav>
+            <Navbar id={pokemon.id} />
+
             <h1 className={styles.pokemonName}>{pokemon.name && capitalizeString(pokemon.name)} 
                 <span> #{pokemon.id && addZero(pokemon.id)}</span>
             </h1>

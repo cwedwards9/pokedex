@@ -6,29 +6,6 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.navbar {
-    background-color: rgb(164, 164, 164);
-    padding: 1rem 0;
-
-    ul {
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-        display: flex;
-        justify-content: space-around;
-
-        li {
-
-            a {
-                font-size: 1.5rem;
-                color: #fff;
-                text-decoration: none;
-            }
-        }
-    }
-}
-
-
 .pokemonName {
     text-align: center;
         font-size: 2.25rem;
@@ -45,7 +22,7 @@
     padding: 0 6rem;
     margin: 0 auto;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1.54fr 1fr;
+    grid-template-rows: 1fr 0.75fr;
     grid-template-areas: 
     "box1 box2"
     "box3 box3";

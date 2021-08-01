@@ -1,0 +1,21 @@
+.navbar {
+    background-color: rgb(164, 164, 164);
+    padding: 1rem 0;
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+
+        li {
+
+            a {
+                font-size: 1.5rem;
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+}
