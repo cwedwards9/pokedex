@@ -4,8 +4,13 @@ import styles from "./Pokemon.module.scss";
 
 const POKE_API = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/";
 
-export default function Pokemon({ id, name }) {
-    function addZero(id) {
+interface Props {
+    id: number;
+    name: string;
+}
+
+export const Pokemon: React.FC<Props> = ({ id, name }) => {
+    function addZero(id: number) {
         return id.toString().padStart(3, "0");
     }
 

@@ -1,7 +1,7 @@
 import React from "react";
-import Pokedex from "../components/Pokedex";
+import { Pokedex } from "../components/Pokedex";
 
-export default function Home() {
+export const Home: React.FC = () => {
     return (
         <>
             <h1>Home</h1>

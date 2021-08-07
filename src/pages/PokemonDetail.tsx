@@ -1,30 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Navbar from "../components/Navbar";
-import PokemonStats from "../components/PokemonStats";
+import { Navbar } from "../components/Navbar";
+import { PokemonStats } from "../components/PokemonStats";
 import getTypeBgColor from "../utils/getTypeBgColor";
 import styles from "./PokemonDetail.module.scss";
 
 const POKE_API = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/";
 
-export default function PokemonDetail() {
-    const { id } = useParams();
-    const [pokemon, setPokemon] = useState([]);
+interface PokemonData {
+    id: number;
+    name: string
+    moves: [{move: {name: string}}]
+    abilities: [{ability: {name: string}}]
+    types: [{slot: number, type: {name: string}}]
+    stats: [{stat: {name: string}}]
+}
+
+export const PokemonDetail: React.FC = () => {
+    const { id }: any = useParams();
+    const [pokemon, setPokemon] = useState<PokemonData>();
 
     useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+        axios.get<PokemonData>(`https://pokeapi.co/api/v2/pokemon/${id}`)
             .then(response => {
                 console.log(response.data);
-                setPokemon(response.data);
+                let { id, name, moves, abilities, types, stats} = response.data;
+                setPokemon({ id: id, name: name, moves: moves, abilities: abilities, types: types, stats: stats });
             })
     }, [id]);
 
-    function addZero(id) {
+    function addZero(id: number) {
         return id.toString().padStart(3, "0");
     }
 
-    function capitalizeString(str) {
+    function capitalizeString(str: string) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
@@ -33,6 +43,8 @@ export default function PokemonDetail() {
 
     return(
         <section className={styles.pokemonDetails}>
+            {pokemon ?
+            <>
             <Navbar id={pokemon.id} />
 
             <h1 className={styles.pokemonName}>{pokemon.name && capitalizeString(pokemon.name)} 
@@ -79,6 +91,9 @@ export default function PokemonDetail() {
                     </div>
                 </div> 
             </div>
+            </>
+            : null
+            }
         </section>
     )
 } 

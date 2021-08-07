@@ -1,20 +1,37 @@
 .navbar {
     background-color: rgb(164, 164, 164);
-    padding: 1rem 0;
+    // padding: 1rem 0;
 
     ul {
         padding: 0;
         margin: 0;
+        height: 100%;
         list-style-type: none;
         display: flex;
         justify-content: space-around;
 
         li {
+            background-image: url("../images/navLink.svg");
+            background-attachment:fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 50%;
+            // height: 200px;
+            text-align: center;
+            padding: 1rem 0;
+            &:hover {
+                background-color: #30A7D7;
+            }
 
-            a {
+            .link {
+                width: 100%;
                 font-size: 1.5rem;
                 color: #fff;
                 text-decoration: none;
+
+                &:hover {
+                    background-color: #30A7D7;
+                }
             }
         }
     }

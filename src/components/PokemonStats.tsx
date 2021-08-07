@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import styles from "./PokemonStats.module.scss";
 
-export default function PokemonStats({stat}) {
+interface Props {
+    stat: any
+}
+
+export const PokemonStats: React.FC<Props> = ({stat}) => {
     useEffect(() => {
         // grab li elements in stat list
         let pStat = document.querySelectorAll(`#${stat.stat.name} li`);
@@ -26,7 +30,7 @@ export default function PokemonStats({stat}) {
     }
 
     return (
-        <div class={styles.stat}>
+        <div className={styles.stat}>
             <ul id={stat.stat.name}>
                 {list}
             </ul>

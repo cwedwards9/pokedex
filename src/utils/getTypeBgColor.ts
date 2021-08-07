@@ -1,4 +1,4 @@
-export default function getTypeBgColor(type) {
+export default function getTypeBgColor(type: string) {
     switch(type) {
         case "grass":
             return "#9BCC50";
